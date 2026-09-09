@@ -18,6 +18,8 @@ Open http://localhost:8080/
 
 No build step, no npm install. Edit the HTML in the root and `assets/css/styles.css`.
 
+Official lockup: `assets/img/igm-logo.png` (Wix `IGM_Logo_FC_02.png` / media id `075786_a8a4e829d5ca47c183ee09262008b562`). Header and footer sit it on a dark chip so the blue wordmark stays readable. Spelling is **Inovative** (one n).
+
 ## Pages
 
 | File | Route |
