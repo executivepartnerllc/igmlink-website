@@ -27,6 +27,38 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  function setupBackgroundVideos() {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var mobile = window.matchMedia("(max-width: 760px)").matches;
+    document.querySelectorAll("[data-bg-video]").forEach(function (video) {
+      if (reduce) {
+        video.removeAttribute("autoplay");
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+        return;
+      }
+      var next = mobile
+        ? video.getAttribute("data-src-mobile") || video.getAttribute("data-src-desktop")
+        : video.getAttribute("data-src-desktop");
+      if (!next || video.getAttribute("src") === next) {
+        return;
+      }
+      video.muted = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("src", next);
+      video.load();
+      var play = video.play();
+      if (play && play.catch) {
+        play.catch(function () {});
+      }
+    });
+  }
+
+  setupBackgroundVideos();
+  window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", setupBackgroundVideos);
+  window.matchMedia("(max-width: 760px)").addEventListener("change", setupBackgroundVideos);
+
   document.querySelectorAll("[data-quote-form]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();

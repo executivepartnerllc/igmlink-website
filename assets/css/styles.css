@@ -324,6 +324,76 @@ p {
   pointer-events: none;
 }
 
+.bg-video,
+.media-clip {
+  background-color: var(--navy-900);
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bg-video video,
+.media-clip video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-clip video {
+  position: absolute;
+  inset: 0;
+}
+
+.bg-video .scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6, 16, 24, 0.82) 0%, rgba(6, 16, 24, 0.58) 46%, rgba(6, 16, 24, 0.28) 100%),
+    linear-gradient(180deg, rgba(6, 16, 24, 0.28), rgba(6, 16, 24, 0.45));
+}
+
+.hero.has-video {
+  min-height: min(88vh, 860px);
+  display: flex;
+  align-items: center;
+  background: var(--navy-900);
+  color: var(--white);
+}
+
+.hero.has-video::after {
+  display: none;
+}
+
+.hero.has-video .kicker {
+  color: var(--green-300);
+}
+
+.hero.has-video .kicker::before {
+  background: var(--green-400);
+}
+
+.hero.has-video .workplace {
+  color: rgba(255, 252, 247, 0.82);
+}
+
+.hero.has-video .shine {
+  color: var(--green-400);
+}
+
+.hero.has-video .lede {
+  color: rgba(255, 252, 247, 0.84);
+}
+
+.hero.has-video .bg-video {
+  background-image: url("../img/home-hero-poster.jpg");
+}
+
 .hero-grid {
   position: relative;
   z-index: 1;
@@ -542,6 +612,30 @@ section {
   margin-top: 0.9rem;
 }
 
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.media-clip {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  min-height: 280px;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow);
+  background-image: url("../img/about-team-poster.jpg");
+}
+
+.media-clip .scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(6, 16, 24, 0.42));
+  pointer-events: none;
+}
+
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -713,6 +807,7 @@ section {
 
 @media (max-width: 960px) {
   .hero-grid,
+  .about-hero-grid,
   .pillars,
   .cta-panel,
   .split,
@@ -813,5 +908,10 @@ section {
   *::before,
   *::after {
     transition: none !important;
+  }
+
+  .bg-video video,
+  .media-clip video {
+    display: none;
   }
 }

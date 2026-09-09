@@ -76,7 +76,21 @@
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero has-video">
+      <div class="bg-video" aria-hidden="true">
+        <video
+          data-bg-video
+          data-src-desktop="assets/video/home-hero.mp4"
+          data-src-mobile="assets/video/home-hero-mobile.mp4"
+          poster="assets/img/home-hero-poster.jpg"
+          muted
+          loop
+          playsinline
+          autoplay
+          preload="metadata"
+        ></video>
+        <div class="scrim"></div>
+      </div>
       <div class="wrap hero-grid">
         <div>
           <p class="kicker">Janitorial · Day porter · Facility cleaning</p>
@@ -88,7 +102,7 @@
           <p class="lede hero-copy">Reliable cleaning professionals for commercial, industrial, and institutional workplaces across the San Diego area. A cleaner floor, a clearer day.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="contact.html">Request a free quote</a>
-            <a class="btn btn-ghost-dark" href="tel:+18584054830">Call (858) 405-4830</a>
+            <a class="btn btn-ghost" href="tel:+18584054830">Call (858) 405-4830</a>
           </div>
         </div>
         <aside class="hero-card">
