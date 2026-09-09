@@ -2,16 +2,9 @@
 
 Lean marketing site for **Inovative General Maintenance** (IGM), El Cajon / San Diego area. Static HTML and CSS for GitHub Pages. Custom domain `igmlink.com` stays on Wix until the team approves a DNS cutover.
 
-**Intended live URL:** https://executivepartnerllc.github.io/igmlink-website/
+**Live:** https://executivepartnerllc.github.io/igmlink-website/
 
-This token cannot enable GitHub Pages (API returns 403). A repo admin needs one click:
-
-1. Open https://github.com/executivepartnerllc/igmlink-website/settings/pages
-2. **Build and deployment → Source:** Deploy from a branch
-3. **Branch:** `main` · **Folder:** `/ (root)`
-4. Save
-
-Do not add a `CNAME` until DNS is ready to leave Wix.
+GitHub Pages is on: branch `main`, folder `/` (root). Do not add a `CNAME` until DNS is ready to leave Wix.
 
 ## Preview locally
 
@@ -39,4 +32,4 @@ Quote forms open a `mailto:` message to `nislas@igmlink.com`.
 
 ## Deploy
 
-Push to `main`. After Pages is enabled from branch `main` / root (see above), GitHub serves the static files. Do not add a `CNAME` until DNS is ready to leave Wix.
+Push to `main`. GitHub Pages serves the static files from the repo root. Do not add a `CNAME` until DNS is ready to leave Wix.
