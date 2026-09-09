@@ -4,9 +4,7 @@ Lean marketing site for **Inovative General Maintenance** (IGM), El Cajon / San 
 
 **Live (GitHub Pages):** https://executivepartnerllc.github.io/igmlink-website/
 
-If that URL 404s, a repo admin still needs **Settings → Pages → Deploy from branch `main` / folder `/` (root)** (or allow the `Deploy GitHub Pages` Action). The Pages admin API is not available to this deploy token.
-
-## Preview locally
+Pages is published from `main` by the `Deploy GitHub Pages` workflow (static HTML at the repo root). If the URL 404s, a repo admin should open **Settings → Pages** and confirm Pages is allowed for this public repo. Do not add a `CNAME` until DNS is ready to leave Wix.
 
 From this folder:
 
