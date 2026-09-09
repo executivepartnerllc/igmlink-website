@@ -791,6 +791,14 @@ section {
     padding-top: 2.2rem;
   }
 
+  .brand-place {
+    display: none;
+  }
+
+  .hero .workplace {
+    letter-spacing: 0.18em;
+  }
+
   section {
     padding: 3.2rem 0;
   }

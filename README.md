@@ -4,6 +4,8 @@ Lean marketing site for **Inovative General Maintenance** (IGM), El Cajon / San 
 
 **Live (GitHub Pages):** https://executivepartnerllc.github.io/igmlink-website/
 
+If that URL 404s, a repo admin still needs **Settings → Pages → Deploy from branch `main` / folder `/` (root)** (or allow the `Deploy GitHub Pages` Action). The Pages admin API is not available to this deploy token.
+
 ## Preview locally
 
 From this folder:
