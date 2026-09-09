@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://executivepartnerllc.github.io/igmlink-website/sitemap.xml

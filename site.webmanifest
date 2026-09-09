@@ -1,0 +1,8 @@
+{
+  "name": "Inovative General Maintenance",
+  "short_name": "IGM",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#F6F1E8",
+  "theme_color": "#0B1F33"
+}
