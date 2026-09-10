@@ -377,7 +377,7 @@ p {
 }
 
 .hero,
-.page-hero {
+.page-hero:not(.about-hero) {
   position: relative;
   overflow: hidden;
 }
@@ -485,19 +485,29 @@ p {
 /* About: pin the clip, park a small glass card low-left, peel it off on scroll so faces stay in view. */
 .page-hero.has-video.about-hero {
   display: block;
+  position: relative;
   overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
   align-items: stretch;
   justify-content: flex-start;
   min-height: 0;
-  padding: 0 0 110svh;
+  padding: 0 0 80svh;
+}
+
+.about-pin {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100svh;
+  overflow: hidden;
 }
 
 .page-hero.has-video.about-hero .bg-video {
-  position: sticky;
-  top: 0;
-  inset: auto;
-  width: 100%;
-  height: 100svh;
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
 }
 
 .page-hero.has-video.about-hero .about-hero-grid {
