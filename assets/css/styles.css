@@ -1021,6 +1021,12 @@ section {
     display: none;
   }
 
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .nav-toggle[aria-expanded="true"] span {
     background: transparent;
   }
