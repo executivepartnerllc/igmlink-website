@@ -464,7 +464,16 @@ p {
 }
 
 .hero.has-video .bg-video {
-  background-image: url("../img/home-hero-poster.jpg");
+  background-image: none;
+  background-color: #c9d6e4;
+}
+
+.hero.has-video .bg-video video {
+  filter: none;
+}
+
+.hero.has-video .bg-video .scrim {
+  display: none;
 }
 
 .page-hero.has-video.about-hero .bg-video {
@@ -1158,5 +1167,11 @@ section {
   .bg-video video,
   .media-clip video {
     display: none;
+  }
+
+  .hero.has-video .bg-video {
+    background-image: url("../img/home-hero-poster.jpg");
+    background-size: cover;
+    background-position: center;
   }
 }
