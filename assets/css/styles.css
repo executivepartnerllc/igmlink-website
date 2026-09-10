@@ -476,13 +476,16 @@ p {
 }
 
 .page-hero.has-video.about-hero .bg-video {
-  background-image: url("../img/about-team-poster.jpg");
+  background-image: none;
+  background-color: #c9d6e4;
 }
 
-.page-hero.has-video.about-hero .scrim {
-  background:
-    linear-gradient(100deg, rgba(248, 251, 255, 0.55) 0%, rgba(248, 251, 255, 0.26) 52%, rgba(232, 240, 254, 0.16) 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(241, 247, 252, 0.28));
+.page-hero.has-video.about-hero .bg-video video {
+  filter: none;
+}
+
+.page-hero.has-video.about-hero .bg-video .scrim {
+  display: none;
 }
 
 .page-hero.has-video.services-hero .bg-video {
@@ -1301,6 +1304,12 @@ section {
 
   .hero.has-video .bg-video {
     background-image: url("../img/home-hero-poster.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .page-hero.has-video.about-hero .bg-video {
+    background-image: url("../img/about-team-poster.jpg");
     background-size: cover;
     background-position: center;
   }
