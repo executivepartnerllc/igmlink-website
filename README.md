@@ -18,7 +18,9 @@ Open http://localhost:8080/
 
 No build step, no npm install. Edit the HTML in the root and `assets/css/styles.css`.
 
-Official lockup: `assets/img/igm-logo.png` (Wix `IGM_Logo_FC_02.png` / media id `075786_a8a4e829d5ca47c183ee09262008b562`). Header and footer sit it on a dark chip so the blue wordmark stays readable. Spelling is **Inovative** (one n).
+Official lockup: `assets/img/igm-logo.png` (Wix `IGM_Logo_FC_02.png` / media id `075786_a8a4e829d5ca47c183ee09262008b562`). The mark is blue-and-white on its own black field; header and footer sit it on a light frosted-glass chip so the lockup reads against the airy storefront. Spelling is **Inovative** (one n).
+
+Visual system: near-white / soft blue-gray surfaces, frosted-glass panels (`backdrop-filter`) over full-bleed muted looping videos on Home, About, and Services. Material-style accents (Google blue/red/yellow/green) are used sparingly on chips, buttons, and card rails — not as a Google clone.
 
 ## Pages
 
@@ -38,7 +40,7 @@ Hosted under `assets/video/` (copied from the public Wix media CDN on igmlink.co
 
 | File | Used on | Source |
 | --- | --- | --- |
-| `assets/video/home-hero.mp4` (720p, ~3.6MB) | Home hero | Wix `video.wixstatic.com` id `11062b_989ef4fbeff04227933fa60f858282fe` from https://www.igmlink.com/ |
+| `assets/video/home-hero.mp4` (720p, ~3.6MB) | Home hero, Services hero | Wix `video.wixstatic.com` id `11062b_989ef4fbeff04227933fa60f858282fe` from https://www.igmlink.com/ |
 | `assets/video/home-hero-mobile.mp4` (480p, ~1.6MB) | Home, narrow screens | same clip |
 | `assets/img/home-hero-poster.jpg` | Home first paint | Wix poster `11062b_989ef4fbeff04227933fa60f858282fef000.jpg` |
 | `assets/video/about-team.mp4` (720p, ~2.4MB) | About media block | Wix id `11062b_34185c7fbb1a4049b5f760374ce3a7aa` from https://www.igmlink.com/about-us |

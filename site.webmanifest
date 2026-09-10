@@ -3,8 +3,8 @@
   "short_name": "IGM",
   "start_url": "./",
   "display": "browser",
-  "background_color": "#061018",
-  "theme_color": "#0B1F33",
+  "background_color": "#F8FBFF",
+  "theme_color": "#EEF3F8",
   "icons": [
     { "src": "assets/img/favicon-32.png", "sizes": "32x32", "type": "image/png" },
     { "src": "assets/img/favicon-192.png", "sizes": "192x192", "type": "image/png" },
