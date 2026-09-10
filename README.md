@@ -26,7 +26,7 @@ Visual system: near-white / soft blue-gray surfaces, frosted-glass panels (`back
 
 | File | Route |
 | --- | --- |
-| `index.html` | Home — hero, four reasons, Dale Smith quote, quote form |
+| `index.html` | Home — hero, four reasons, testimonial slider, quote form |
 | `about.html` | About |
 | `services.html` | Janitorial / day porter / facility cleaning |
 | `contact.html` | Quote form and office details |
@@ -46,6 +46,9 @@ Hosted under `assets/video/` (copied from the public Wix media CDN on igmlink.co
 | `assets/video/about-team.mp4` (720p, ~2.4MB) | About media block | Wix id `11062b_34185c7fbb1a4049b5f760374ce3a7aa` from https://www.igmlink.com/about-us |
 | `assets/video/about-team-mobile.mp4` (480p, ~1.2MB) | About, narrow screens | same clip |
 | `assets/img/about-team-poster.jpg` | About first paint | Wix poster `11062b_34185c7fbb1a4049b5f760374ce3a7aaf000.jpg` |
+| `assets/img/testimonials-office.jpg` | Home testimonial slider background | Wix media `11062b_0f10d1a3bc8e4fb1ba089c42056efe9b` (alt “Businessmen”) from the Home slideshow on https://www.igmlink.com/ |
+
+Home testimonials (copy from the live Wix Home slideshow, not invented): Mario Hernandez, Dale Smith, Nicole Moor. Auto-rotate pauses for `prefers-reduced-motion` and while the slider is hovered or focused.
 
 ## Deploy
 
