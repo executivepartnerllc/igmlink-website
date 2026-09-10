@@ -67,6 +67,106 @@
   window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", setupBackgroundVideos);
   window.matchMedia("(max-width: 760px)").addEventListener("change", setupBackgroundVideos);
 
+  function setupQuoteSlider() {
+    var root = document.querySelector("[data-quote-slider]");
+    if (!root) {
+      return;
+    }
+    var slides = Array.prototype.slice.call(root.querySelectorAll("[data-slide]"));
+    var dots = Array.prototype.slice.call(root.querySelectorAll("[data-dot]"));
+    var prev = root.querySelector("[data-prev]");
+    var next = root.querySelector("[data-next]");
+    var reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var index = 0;
+    var timer = null;
+    var delay = 7000;
+
+    function show(nextIndex) {
+      index = (nextIndex + slides.length) % slides.length;
+      slides.forEach(function (slide, i) {
+        var on = i === index;
+        slide.classList.toggle("is-active", on);
+        if (on) {
+          slide.removeAttribute("hidden");
+        } else {
+          slide.setAttribute("hidden", "");
+        }
+      });
+      dots.forEach(function (dot, i) {
+        var on = i === index;
+        dot.classList.toggle("is-active", on);
+        dot.setAttribute("aria-selected", on ? "true" : "false");
+      });
+    }
+
+    function stop() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function start() {
+      stop();
+      if (reduceQuery.matches || slides.length < 2) {
+        return;
+      }
+      timer = window.setInterval(function () {
+        show(index + 1);
+      }, delay);
+    }
+
+    if (prev) {
+      prev.addEventListener("click", function () {
+        show(index - 1);
+        start();
+      });
+    }
+    if (next) {
+      next.addEventListener("click", function () {
+        show(index + 1);
+        start();
+      });
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () {
+        show(i);
+        start();
+      });
+    });
+    root.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        show(index - 1);
+        start();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        show(index + 1);
+        start();
+      }
+    });
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("focusout", function (event) {
+      if (!root.contains(event.relatedTarget)) {
+        start();
+      }
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stop();
+      } else {
+        start();
+      }
+    });
+    reduceQuery.addEventListener("change", start);
+    show(0);
+    start();
+  }
+
+  setupQuoteSlider();
+
   document.querySelectorAll("[data-quote-form]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
