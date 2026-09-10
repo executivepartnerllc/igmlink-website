@@ -6,7 +6,7 @@
   <title>Services | Inovative General Maintenance</title>
   <meta name="description" content="Janitorial, day porter, and facility cleaning from Inovative General Maintenance in El Cajon, serving the San Diego area.">
   <link rel="canonical" href="https://executivepartnerllc.github.io/igmlink-website/services.html">
-  <meta name="theme-color" content="#0B1F33">
+  <meta name="theme-color" content="#EEF3F8">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -26,7 +26,9 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">
-        <img src="assets/img/igm-logo.png" alt="Inovative General Maintenance — Building Services">
+        <span class="brand-mark">
+          <img src="assets/img/igm-logo.png" alt="Inovative General Maintenance — Building Services">
+        </span>
         <span class="brand-place">El Cajon · San Diego area</span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
@@ -54,28 +56,44 @@
   </header>
 
   <main id="main">
-    <section class="page-hero">
+    <section class="page-hero has-video services-hero">
+      <div class="bg-video" aria-hidden="true">
+        <video
+          data-bg-video
+          data-src-desktop="assets/video/home-hero.mp4"
+          data-src-mobile="assets/video/home-hero-mobile.mp4"
+          poster="assets/img/home-hero-poster.jpg"
+          muted
+          loop
+          playsinline
+          autoplay
+          preload="metadata"
+        ></video>
+        <div class="scrim"></div>
+      </div>
       <div class="wrap">
-        <p class="kicker">What we do</p>
-        <h1>When we say clean, we mean the workplace is ready.</h1>
-        <p class="lede">Janitorial, day porter, and facility cleaning, scoped to how the building actually runs.</p>
+        <div class="glass page-hero-copy">
+          <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>What we do</p>
+          <h1>When we say clean, we mean the workplace is ready.</h1>
+          <p class="lede">Janitorial, day porter, and facility cleaning, scoped to how the building actually runs.</p>
+        </div>
       </div>
     </section>
 
     <section>
       <div class="wrap">
         <div class="service-grid">
-          <article class="service-card">
+          <article class="service-card accent-blue">
             <span class="tag">01</span>
             <h3>Janitorial</h3>
             <p>Nightly and scheduled janitorial maintenance: restrooms, kitchens, common areas, trash, and the details that make an office feel looked after before the first person arrives.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card accent-red">
             <span class="tag">02</span>
             <h3>Day porter</h3>
             <p>On-site presence during business hours for high-traffic touch-ups, restocking, spills, and the kind of continuous tidiness visitors actually notice.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card accent-green">
             <span class="tag">03</span>
             <h3>Facility cleaning</h3>
             <p>Broader facility work — floor care, windows, sanitizing, and the extras a property needs to stay presentable, safe, and usable.</p>
@@ -83,7 +101,7 @@
         </div>
 
         <div class="section-head" style="margin-top:3rem">
-          <p class="kicker">Also in scope</p>
+          <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Also in scope</p>
           <h2>Cleaning that fits the property.</h2>
           <p>From the live IGM service list: we tailor the mix instead of selling a one-size package.</p>
         </div>
@@ -98,7 +116,7 @@
 
         <div class="cta-panel" style="margin-top:2.5rem">
           <div>
-            <p class="kicker">Next step</p>
+            <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Next step</p>
             <h2>Tell us about the building.</h2>
             <p class="lede" style="margin-top:0.85rem">Offices, medical, schools, hospitality, industrial, and more — if you manage the property, we can talk scope. Call <a href="tel:+18584054830">(858) 405-4830</a> or email <a href="mailto:nislas@igmlink.com">nislas@igmlink.com</a>.</p>
           </div>
@@ -140,7 +158,7 @@
       </div>
       <div class="copyright">
         <span>© Inovative General Maintenance · El Cajon, CA</span>
-        <span class="ep-note">Built with Executive Partner</span>
+        <span class="ep-note">Built with Executive Partner <span class="material-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span></span>
       </div>
     </div>
   </footer>
