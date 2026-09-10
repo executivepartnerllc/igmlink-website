@@ -1399,6 +1399,199 @@ section {
   }
 }
 
+/* Parallax + scrollytelling. CSS scroll timelines first; JS only fills gaps. */
+.hero.has-video,
+.page-hero.has-video:not(.about-hero) {
+  view-timeline-name: --hero-story;
+  view-timeline-axis: block;
+}
+
+.about-track {
+  view-timeline-name: --about-story;
+  view-timeline-axis: block;
+}
+
+.quote-band {
+  view-timeline-name: --quote-story;
+  view-timeline-axis: block;
+}
+
+#quote {
+  view-timeline-name: --cta-story;
+  view-timeline-axis: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .hero.has-video .bg-video[data-parallax="media"],
+    .page-hero.has-video:not(.about-hero) .bg-video[data-parallax="media"] {
+      top: -12%;
+      bottom: -12%;
+      height: auto;
+      animation: parallax-media linear both;
+      animation-timeline: --hero-story;
+      animation-range: cover;
+    }
+
+    .hero.has-video [data-parallax="glass"],
+    .page-hero.has-video:not(.about-hero) [data-parallax="glass"] {
+      animation: parallax-glass linear both;
+      animation-timeline: --hero-story;
+      animation-range: cover;
+    }
+
+    .about-pin .bg-video {
+      animation: about-zoom linear both;
+      animation-timeline: --about-story;
+      animation-range: cover;
+    }
+
+    .page-hero.has-video.about-hero .page-hero-copy {
+      animation: about-card-leave linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 80%;
+    }
+
+    .quote-band-media[data-parallax="media"] img {
+      height: 126%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      animation: parallax-quote linear both;
+      animation-timeline: --quote-story;
+      animation-range: cover;
+    }
+
+    #quote .cta-media video {
+      animation: quote-clip-zoom linear both;
+      animation-timeline: --cta-story;
+      animation-range: cover;
+    }
+
+    [data-story] {
+      animation: story-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 42%;
+    }
+
+    [data-story-stagger] > [data-story]:nth-child(2) {
+      animation-range: entry 8% entry 48%;
+    }
+
+    [data-story-stagger] > [data-story]:nth-child(3) {
+      animation-range: entry 16% entry 54%;
+    }
+
+    [data-story-stagger] > [data-story]:nth-child(4) {
+      animation-range: entry 24% entry 60%;
+    }
+
+    [data-story-stagger] > [data-story]:nth-child(5) {
+      animation-range: entry 30% entry 64%;
+    }
+
+    [data-story-stagger] > [data-story]:nth-child(6) {
+      animation-range: entry 36% entry 68%;
+    }
+  }
+
+  .js-story [data-story] {
+    opacity: 0;
+    transform: translate3d(0, 1.35rem, 0);
+    transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+  }
+
+  .js-story [data-story].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js-story [data-story-stagger] > [data-story]:nth-child(2) { transition-delay: 0.08s; }
+  .js-story [data-story-stagger] > [data-story]:nth-child(3) { transition-delay: 0.16s; }
+  .js-story [data-story-stagger] > [data-story]:nth-child(4) { transition-delay: 0.24s; }
+  .js-story [data-story-stagger] > [data-story]:nth-child(5) { transition-delay: 0.3s; }
+  .js-story [data-story-stagger] > [data-story]:nth-child(6) { transition-delay: 0.36s; }
+}
+
+@keyframes parallax-media {
+  from { transform: translate3d(0, -5%, 0); }
+  to { transform: translate3d(0, 8%, 0); }
+}
+
+@keyframes parallax-glass {
+  from { transform: translate3d(0, 0.9rem, 0); }
+  to { transform: translate3d(0, -2.1rem, 0); }
+}
+
+@keyframes parallax-quote {
+  from { transform: translate3d(0, -6%, 0); }
+  to { transform: translate3d(0, 8%, 0); }
+}
+
+@keyframes about-zoom {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes about-card-leave {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translate3d(0, -1.1rem, 0); }
+}
+
+@keyframes quote-clip-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+@keyframes story-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 760px) {
+  @keyframes parallax-media {
+    from { transform: translate3d(0, -1.5%, 0); }
+    to { transform: translate3d(0, 2.5%, 0); }
+  }
+
+  @keyframes parallax-glass {
+    from { transform: translate3d(0, 0.2rem, 0); }
+    to { transform: translate3d(0, -0.55rem, 0); }
+  }
+
+  @keyframes parallax-quote {
+    from { transform: translate3d(0, -2%, 0); }
+    to { transform: translate3d(0, 3%, 0); }
+  }
+
+  @keyframes about-zoom {
+    from { transform: scale(1.01); }
+    to { transform: scale(1.03); }
+  }
+
+  @keyframes quote-clip-zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.02); }
+  }
+
+  @keyframes story-rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 0.7rem, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1408,6 +1601,19 @@ section {
   *::before,
   *::after {
     transition: none !important;
+    animation: none !important;
+  }
+
+  [data-story],
+  [data-parallax],
+  .hero.has-video [data-parallax="glass"],
+  .page-hero.has-video [data-parallax="glass"],
+  .page-hero.has-video.about-hero .page-hero-copy,
+  .quote-band-media img,
+  #quote .cta-media video,
+  .about-pin .bg-video {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .bg-video video,
