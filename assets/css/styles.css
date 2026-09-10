@@ -566,6 +566,44 @@ p {
   display: none;
 }
 
+.page-hero.has-video.contact-hero .bg-video {
+  background-image: none;
+  background-color: #c9d6e4;
+}
+
+.page-hero.has-video.contact-hero .bg-video video {
+  filter: none;
+}
+
+.page-hero.has-video.contact-hero .bg-video .scrim {
+  display: none;
+}
+
+.contact-hero .page-hero-copy::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--g-blue), var(--g-green) 55%, var(--g-yellow));
+  opacity: 0.9;
+}
+
+.contact-hero .page-hero-copy {
+  overflow: hidden;
+}
+
+.contact-hero + .contact-panel {
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
+}
+
+.contact-panel .form.detail-card {
+  background: rgba(255, 255, 255, 0.94);
+}
+
 .hero-grid {
   position: relative;
   z-index: 1;
@@ -1328,6 +1366,12 @@ section {
     padding: calc(var(--header-h) + 1.4rem) 0 2.2rem;
   }
 
+  .page-hero.has-video.contact-hero {
+    min-height: min(68svh, 560px);
+    align-items: flex-end;
+    padding: calc(var(--header-h) + 1.2rem) 0 1.6rem;
+  }
+
   .hero-copy-card,
   .hero-card,
   .page-hero-copy {
@@ -1386,6 +1430,12 @@ section {
 
   .page-hero.has-video.services-hero .bg-video {
     background-image: url("../img/home-hero-poster.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .page-hero.has-video.contact-hero .bg-video {
+    background-image: url("../img/contact-hero-poster.jpg");
     background-size: cover;
     background-position: center;
   }

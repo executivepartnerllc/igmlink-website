@@ -55,19 +55,36 @@
   </header>
 
   <main id="main">
-    <section class="page-hero">
+    <section class="page-hero has-video contact-hero">
+      <div class="bg-video" aria-hidden="true">
+        <video
+          data-bg-video
+          data-src-desktop="assets/video/contact-hero.mp4"
+          data-src-mobile="assets/video/contact-hero-mobile.mp4"
+          src="assets/video/contact-hero.mp4"
+          muted
+          loop
+          playsinline
+          autoplay
+          preload="auto"
+        ></video>
+      </div>
       <div class="wrap">
         <div class="glass page-hero-copy">
           <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Contact</p>
           <h1>Request a free quote.</h1>
           <p class="lede">Primary contact is nislas@igmlink.com. Call the office if you would rather talk through the building first.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#quote">Start the quote form</a>
+            <a class="btn btn-ghost" href="tel:+18584054830">Call (858) 405-4830</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="contact-panel" id="quote">
       <div class="wrap contact-grid">
-        <form class="form" id="quote" data-quote-form>
+        <form class="form detail-card" data-quote-form>
           <label>Name
             <input type="text" name="name" autocomplete="name" required>
           </label>
