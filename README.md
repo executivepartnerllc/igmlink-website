@@ -20,7 +20,9 @@ No build step, no npm install. Edit the HTML in the root and `assets/css/styles.
 
 Official lockup: `assets/img/igm-logo.png` (Wix `IGM_Logo_FC_02.png` / media id `075786_a8a4e829d5ca47c183ee09262008b562`). The mark is blue-and-white on its own black field; header and footer sit it on a light frosted-glass chip so the lockup reads against the airy storefront. Spelling is **Inovative** (one n).
 
-Visual system: near-white / soft blue-gray surfaces, frosted-glass panels (`backdrop-filter`) over full-bleed muted looping videos on Home, About, Services, and Contact. Material-style accents (Google blue/red/yellow/green) are used sparingly on chips, buttons, and card rails — not as a Google clone.
+Visual system: near-white / soft blue-gray surfaces, frosted-glass panels (`backdrop-filter`) over full-bleed muted looping videos on Home, About, Services, and Contact. Material-style accents (Google blue/red/yellow/green) are used sparingly on chips, buttons, and card rails — not as a Google clone. Heroes stay sharp — no haze scrims over the clips.
+
+Motion: subtle CSS scroll-timeline parallax (hero video vs glass card, testimonials photo, About pin zoom, Free Quote clip) and scroll-driven story rises on Home / About / Services / Contact. Distances drop on narrow screens. `prefers-reduced-motion: reduce` turns motion off and keeps the existing poster-still fallback. Browsers without `animation-timeline` still get story rises via IntersectionObserver; parallax is skipped.
 
 ## Pages
 

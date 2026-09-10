@@ -167,6 +167,70 @@
 
   setupQuoteSlider();
 
+  function setupScrollStory() {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var items = document.querySelectorAll("[data-story]");
+    var observer = null;
+
+    function supportsViewTimeline() {
+      try {
+        return Boolean(
+          window.CSS &&
+            CSS.supports &&
+            (CSS.supports("animation-timeline: view()") || CSS.supports("animation-timeline", "view()"))
+        );
+      } catch (err) {
+        return false;
+      }
+    }
+
+    function revealAll() {
+      items.forEach(function (el) {
+        el.classList.add("is-in");
+      });
+      document.documentElement.classList.remove("js-story");
+    }
+
+    function disconnect() {
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+    }
+
+    function apply() {
+      disconnect();
+      if (reduce.matches || supportsViewTimeline() || !items.length || !("IntersectionObserver" in window)) {
+        revealAll();
+        return;
+      }
+
+      document.documentElement.classList.add("js-story");
+      observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-in");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.14 }
+      );
+      items.forEach(function (el) {
+        observer.observe(el);
+      });
+      window.setTimeout(revealAll, 4500);
+    }
+
+    apply();
+    if (reduce.addEventListener) {
+      reduce.addEventListener("change", apply);
+    }
+  }
+
+  setupScrollStory();
+
   document.querySelectorAll("[data-quote-form]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();

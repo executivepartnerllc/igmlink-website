@@ -56,7 +56,7 @@
 
   <main id="main">
     <section class="page-hero has-video contact-hero">
-      <div class="bg-video" aria-hidden="true">
+      <div class="bg-video" data-parallax="media" aria-hidden="true">
         <video
           data-bg-video
           data-src-desktop="assets/video/contact-hero.mp4"
@@ -70,7 +70,7 @@
         ></video>
       </div>
       <div class="wrap">
-        <div class="glass page-hero-copy">
+        <div class="glass page-hero-copy" data-parallax="glass">
           <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Contact</p>
           <h1>Request a free quote.</h1>
           <p class="lede">Primary contact is nislas@igmlink.com. Call the office if you would rather talk through the building first.</p>
@@ -84,7 +84,7 @@
 
     <section class="contact-panel" id="quote">
       <div class="wrap contact-grid">
-        <form class="form detail-card" data-quote-form>
+        <form class="form detail-card" data-quote-form data-story>
           <label>Name
             <input type="text" name="name" autocomplete="name" required>
           </label>
@@ -101,7 +101,7 @@
           <p class="form-note">Opens your email app to nislas@igmlink.com. You can also write that address directly.</p>
         </form>
 
-        <aside class="detail-card">
+        <aside class="detail-card" data-story>
           <h2>Office details</h2>
           <dl class="dl" style="margin-top:1.2rem">
             <div>
