@@ -489,7 +489,7 @@ p {
   align-items: stretch;
   justify-content: flex-start;
   min-height: 0;
-  padding: 0 0 36svh;
+  padding: 0 0 110svh;
 }
 
 .page-hero.has-video.about-hero .bg-video {
