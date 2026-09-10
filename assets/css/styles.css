@@ -237,12 +237,6 @@ p {
   border-radius: 10px;
 }
 
-.brand-place {
-  color: var(--ink-2);
-  font-size: 0.78rem;
-  font-weight: 550;
-}
-
 .nav-desktop {
   display: flex;
   align-items: center;
@@ -383,7 +377,7 @@ p {
 }
 
 .hero,
-.page-hero {
+.page-hero:not(.about-hero) {
   position: relative;
   overflow: hidden;
 }
@@ -476,17 +470,100 @@ p {
 }
 
 .page-hero.has-video.about-hero .bg-video {
-  background-image: url("../img/about-team-poster.jpg");
+  background-image: none;
+  background-color: #c9d6e4;
 }
 
-.page-hero.has-video.about-hero .scrim {
-  background:
-    linear-gradient(100deg, rgba(248, 251, 255, 0.55) 0%, rgba(248, 251, 255, 0.26) 52%, rgba(232, 240, 254, 0.16) 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(241, 247, 252, 0.28));
+.page-hero.has-video.about-hero .bg-video video {
+  filter: none;
+}
+
+.page-hero.has-video.about-hero .bg-video .scrim {
+  display: none;
+}
+
+/* About: pin the clip on a tall track; overlay card sits in the first viewport and scrolls away. */
+.page-hero.has-video.about-hero {
+  display: block;
+  position: relative;
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-height: 0;
+  padding: 0;
+}
+
+.about-track {
+  position: relative;
+  height: 230svh;
+}
+
+.about-pin {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.page-hero.has-video.about-hero .bg-video {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+}
+
+.page-hero.has-video.about-hero .about-hero-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: min(1120px, calc(100% - 2.5rem));
+  height: 100svh;
+  margin: 0 auto;
+  padding: calc(var(--header-h) + 1.2rem) 0 2.2rem;
+  pointer-events: none;
+}
+
+.page-hero.has-video.about-hero .page-hero-copy {
+  pointer-events: auto;
+  max-width: min(26.5rem, 100%);
+  padding: 1rem 1.15rem 1.1rem;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.page-hero.has-video.about-hero .page-hero-copy h1 {
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+}
+
+.page-hero.has-video.about-hero .page-hero-copy .lede {
+  font-size: 0.95rem;
+}
+
+.about-hero + section {
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
 }
 
 .page-hero.has-video.services-hero .bg-video {
-  background-image: url("../img/home-hero-poster.jpg");
+  background-image: none;
+  background-color: #c9d6e4;
+}
+
+.page-hero.has-video.services-hero .bg-video video {
+  filter: none;
+}
+
+.page-hero.has-video.services-hero .bg-video .scrim {
+  display: none;
 }
 
 .hero-grid {
@@ -778,8 +855,9 @@ section {
 
 .cta-panel {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  align-items: start;
   background: var(--glass-strong);
   -webkit-backdrop-filter: var(--blur);
   backdrop-filter: var(--blur);
@@ -787,6 +865,31 @@ section {
   border-radius: 28px;
   padding: 2rem;
   box-shadow: var(--shadow);
+}
+
+.cta-copy {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+}
+
+.cta-media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 752 / 416;
+  min-height: 220px;
+  border-radius: 20px;
+  background: #0c2233 url("../img/quote-logo-table-poster.jpg") center / cover no-repeat;
+  box-shadow: 0 12px 32px rgba(32, 54, 88, 0.14);
+}
+
+.cta-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: none;
 }
 
 .form {
@@ -1239,10 +1342,6 @@ section {
     min-height: 16rem;
   }
 
-  .brand-place {
-    display: none;
-  }
-
   .brand img {
     height: 46px;
   }
@@ -1268,11 +1367,24 @@ section {
   }
 
   .bg-video video,
-  .media-clip video {
+  .media-clip video,
+  .cta-media video {
     display: none;
   }
 
   .hero.has-video .bg-video {
+    background-image: url("../img/home-hero-poster.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .page-hero.has-video.about-hero .bg-video {
+    background-image: url("../img/about-team-poster.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .page-hero.has-video.services-hero .bg-video {
     background-image: url("../img/home-hero-poster.jpg");
     background-size: cover;
     background-position: center;

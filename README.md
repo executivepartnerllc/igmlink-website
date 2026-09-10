@@ -47,6 +47,8 @@ Hosted under `assets/video/` (copied from the public Wix media CDN on igmlink.co
 | `assets/video/about-team-mobile.mp4` (480p, ~1.2MB) | About, narrow screens | same clip |
 | `assets/img/about-team-poster.jpg` | About first paint | Wix poster `11062b_34185c7fbb1a4049b5f760374ce3a7aaf000.jpg` |
 | `assets/img/testimonials-office.jpg` | Home testimonial slider background | Wix media `11062b_0f10d1a3bc8e4fb1ba089c42056efe9b` (alt “Businessmen”) from the Home slideshow on https://www.igmlink.com/ |
+| `assets/video/quote-logo-table.mp4` (~6s, 480p, ~780KB) | Home Free Quote left column | Wix video `075786_c58691e71c264887b668941ef74f602c` from https://www.igmlink.com/ (3D IGM lockup fading onto a conference table) |
+| `assets/img/quote-logo-table-poster.jpg` | Free Quote clip first paint / reduced motion | Frame from the same clip |
 
 Home testimonials (copy from the live Wix Home slideshow, not invented): Mario Hernandez, Dale Smith, Nicole Moor. Auto-rotate pauses for `prefers-reduced-motion` and while the slider is hovered or focused.
 
