@@ -31,23 +31,31 @@
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var mobile = window.matchMedia("(max-width: 760px)").matches;
     document.querySelectorAll("[data-bg-video]").forEach(function (video) {
+      var wrap = video.closest(".bg-video");
       if (reduce) {
         video.removeAttribute("autoplay");
         video.pause();
         video.removeAttribute("src");
         video.load();
+        if (wrap) {
+          wrap.classList.remove("is-playing");
+        }
         return;
       }
       var next = mobile
         ? video.getAttribute("data-src-mobile") || video.getAttribute("data-src-desktop")
         : video.getAttribute("data-src-desktop");
-      if (!next || video.getAttribute("src") === next) {
-        return;
+      if (next && video.getAttribute("src") !== next) {
+        video.setAttribute("src", next);
+        video.load();
       }
       video.muted = true;
       video.setAttribute("muted", "");
-      video.setAttribute("src", next);
-      video.load();
+      video.onplaying = function () {
+        if (wrap) {
+          wrap.classList.add("is-playing");
+        }
+      };
       var play = video.play();
       if (play && play.catch) {
         play.catch(function () {});
