@@ -38,7 +38,28 @@ Motion: subtle CSS scroll-timeline parallax (hero video vs glass card, testimoni
 | `privacy-policy.html` | Privacy Policy — same locked set |
 | `terms.html` | Redirects to `terms-of-use.html` (old short link) |
 
-Quote forms open a `mailto:` message to `nislas@igmlink.com`.
+Quote / contact forms **POST JSON** to a Power Automate (or other) HTTP trigger. They do not open mailto as the primary path.
+
+## Quote webhook (Admin)
+
+Paste the flow URL in `assets/js/quote-config.js` → `QUOTE_WEBHOOK_URL`. Until that is set, the form still uses the POST path and shows a clear “Admin needs the URL” status; mailto to `jcuevas@igmlink.com` (CC `nislas@igmlink.com`) is only a backup link.
+
+JSON fields:
+
+| Field | Notes |
+| --- | --- |
+| `name`, `phone`, `email` | Required visitor fields |
+| `company`, `property` | Same “Company / property” value (either name is fine for Hub mapping) |
+| `message` | Free text |
+| `leadSource` | Always `Website Quote` |
+| `stage` | Always `Suspect` — **do not** auto-advance to Prospect |
+| `notifyTo` | `jcuevas@igmlink.com` |
+| `notifyCc` | `nislas@igmlink.com` |
+| `submittedAt`, `page` | ISO timestamp and form URL |
+
+The flow should create a Cuevas Hub **IGM Sales Leads** item at Stage **Suspect** and email Juan with Nicolas copied. A human confirms a real prospect before Stage becomes Prospect.
+
+The flow must allow CORS from this GitHub Pages origin (`POST` + `OPTIONS`, `Content-Type: application/json`).
 
 ## Terms of Use and Privacy Policy
 

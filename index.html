@@ -221,11 +221,15 @@
           <label>Phone
             <input type="tel" name="phone" autocomplete="tel" required>
           </label>
+          <label>Company / property
+            <input type="text" name="company" autocomplete="organization" required>
+          </label>
           <label>Message
             <textarea name="message" required placeholder="Property type, square footage, and the schedule you have in mind."></textarea>
           </label>
-          <button class="btn btn-primary" type="submit">Email a free quote request</button>
-          <p class="form-note">No third-party form vendor. If your email app does not open, write directly to <a href="mailto:nislas@igmlink.com">nislas@igmlink.com</a>.</p>
+          <button class="btn btn-primary" type="submit">Send quote request</button>
+          <p class="form-status" data-quote-status role="status" aria-live="polite" hidden></p>
+          <p class="form-note">This sends a Sales Lead at Stage Suspect — not a skip to Prospect. Juan is notified, with Nicolas copied. Backup: <a data-quote-mailto href="mailto:jcuevas@igmlink.com?cc=nislas@igmlink.com">email Juan (CC Nicolas)</a>.</p>
         </form>
       </div>
     </section>
@@ -266,6 +270,7 @@
       </div>
     </div>
   </footer>
+  <script src="assets/js/quote-config.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>
