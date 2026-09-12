@@ -232,12 +232,9 @@
   setupScrollStory();
 
   function setupQuoteForms() {
-    var cfg = window.IGM_QUOTE || {};
-    var webhook = String(cfg.QUOTE_WEBHOOK_URL || "").trim();
-    var leadSource = cfg.LEAD_SOURCE || "Website Quote";
-    var stage = cfg.STAGE || "Suspect";
-    var notifyTo = cfg.NOTIFY_TO || "jcuevas@igmlink.com";
-    var notifyCc = cfg.NOTIFY_CC || "nislas@igmlink.com";
+    function quoteCfg() {
+      return window.IGM_QUOTE || {};
+    }
 
     document.querySelectorAll("[data-quote-form]").forEach(function (form) {
       var status = form.querySelector("[data-quote-status]");
@@ -293,6 +290,12 @@
 
       form.addEventListener("submit", function (event) {
         event.preventDefault();
+        var cfg = quoteCfg();
+        var webhook = String(cfg.QUOTE_WEBHOOK_URL || "").trim();
+        var leadSource = cfg.LEAD_SOURCE || "Website Quote";
+        var stage = cfg.STAGE || "Suspect";
+        var notifyTo = cfg.NOTIFY_TO || "jcuevas@igmlink.com";
+        var notifyCc = cfg.NOTIFY_CC || "nislas@igmlink.com";
         var data = new FormData(form);
         var company = String(data.get("company") || "").trim();
         var payload = {
