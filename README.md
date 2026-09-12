@@ -34,9 +34,22 @@ Motion: subtle CSS scroll-timeline parallax (hero video vs glass card, testimoni
 | `contact.html` | Quote form and office details |
 | `login.html` | Login chooser — Team, Employees, Clients (does not lock the public site) |
 | `client-login.html` | Client door landing — Microsoft sign-in copy + interim Hub button |
-| `terms.html` | Short SMB terms placeholder |
+| `terms-of-use.html` | Terms of Use — Juan-locked draft, §16 arbitration **Effective** (Sep 12, 2026) |
+| `privacy-policy.html` | Privacy Policy — same locked set |
+| `terms.html` | Redirects to `terms-of-use.html` (old short link) |
 
 Quote forms open a `mailto:` message to `nislas@igmlink.com`.
+
+## Terms of Use and Privacy Policy
+
+Footer links on every page:
+
+- **Terms of Use** → `terms-of-use.html`
+- **Privacy Policy** → `privacy-policy.html`
+
+Copy is the Juan-locked website draft (effective / last updated September 12, 2026). **§16 Binding arbitration & class waiver is Effective** (locked 2026-09-12). Public pages do not carry a “draft / not legal advice” banner. `terms.html` redirects to `terms-of-use.html`.
+
+Spelling in the drafts is **Inovative**. Address is **165 W Park Ave, El Cajon, CA 92020**.
 
 ## Login destinations
 

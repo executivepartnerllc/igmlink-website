@@ -116,7 +116,8 @@ select {
   .detail-card,
   .service-card,
   .login-door,
-  .client-login-card {
+  .client-login-card,
+  .legal-table-wrap {
     background: rgba(255, 255, 255, 0.94);
   }
 }
@@ -1478,6 +1479,69 @@ section {
 .terms h2 {
   font-size: 1.3rem;
   margin-top: 0.6rem;
+}
+
+.terms h3 {
+  font-size: 1.08rem;
+  font-family: var(--font-sans);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin-top: 0.35rem;
+}
+
+.terms-note {
+  font-size: 0.95rem;
+  font-weight: 550;
+  color: var(--ink);
+}
+
+.legal-callout {
+  margin: 0;
+  background: var(--g-blue-soft);
+  border: 1px solid rgba(26, 115, 232, 0.16);
+  border-radius: 16px;
+  padding: 0.95rem 1.1rem;
+  color: var(--ink-2);
+}
+
+.legal-callout p {
+  margin: 0;
+}
+
+.legal-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 22px rgba(32, 54, 88, 0.05);
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-table th {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--g-blue-deep);
+  background: rgba(232, 240, 254, 0.55);
+}
+
+.legal-table tr:last-child td {
+  border-bottom: 0;
 }
 
 .fallback-logo {
