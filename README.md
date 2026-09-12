@@ -32,9 +32,66 @@ Motion: subtle CSS scroll-timeline parallax (hero video vs glass card, testimoni
 | `about.html` | About |
 | `services.html` | Janitorial / day porter / facility cleaning |
 | `contact.html` | Quote form and office details |
-| `terms.html` | Short SMB terms placeholder |
+| `login.html` | Login chooser — Team, Employees, Clients (does not lock the public site) |
+| `client-login.html` | Client door landing — Microsoft sign-in copy + interim Hub button |
+| `terms-of-use.html` | Terms of Use — Juan-locked draft, §16 arbitration **Effective** (Sep 12, 2026) |
+| `privacy-policy.html` | Privacy Policy — same locked set |
+| `terms.html` | Redirects to `terms-of-use.html` (old short link) |
 
-Quote forms open a `mailto:` message to `nislas@igmlink.com`.
+Quote / contact forms **POST JSON** to a Power Automate (or other) HTTP trigger. They do not open mailto as the primary path.
+
+## Quote webhook (Admin)
+
+Paste the flow URL in `assets/js/quote-config.js` → `QUOTE_WEBHOOK_URL`. Until that is set, the form still uses the POST path and shows a clear “Admin needs the URL” status; mailto to `jcuevas@igmlink.com` (CC `nislas@igmlink.com`) is only a backup link.
+
+JSON fields:
+
+| Field | Notes |
+| --- | --- |
+| `name`, `phone`, `email` | Required visitor fields |
+| `company`, `property` | Same “Company / property” value (either name is fine for Hub mapping) |
+| `message` | Free text |
+| `leadSource` | Always `Website Quote` |
+| `stage` | Always `Suspect` — **do not** auto-advance to Prospect |
+| `notifyTo` | `jcuevas@igmlink.com` |
+| `notifyCc` | `nislas@igmlink.com` |
+| `submittedAt`, `page` | ISO timestamp and form URL |
+
+The flow should create a Cuevas Hub **IGM Sales Leads** item at Stage **Suspect** and email Juan with Nicolas copied. A human confirms a real prospect before Stage becomes Prospect.
+
+The flow must allow CORS from this GitHub Pages origin (`POST` + `OPTIONS`, `Content-Type: application/json`).
+
+## Terms of Use and Privacy Policy
+
+Footer links on every page:
+
+- **Terms of Use** → `terms-of-use.html`
+- **Privacy Policy** → `privacy-policy.html`
+
+Copy is the website Counsel draft Juan accepted (effective / last updated September 12, 2026). **§16 Binding arbitration & class waiver is Effective** — Juan locked it 2026-09-12. That section is not optional and does not carry a draft banner. `terms.html` redirects to `terms-of-use.html`.
+
+Butler source paths (`hr-office-setup/pages-drafts/…`) are not in this repo; Pages uses the same website-only markdown Juan pasted for publish.
+
+### Counsel flags (Wix Terms — REVISE, not PASS)
+
+- Do **not** treat https://www.igmlink.com/general-5 (updated May 15, 2022) as final legal copy. Counsel marked that page **REVISE**.
+- Footer goes to `terms-of-use.html` and `privacy-policy.html`. A short note on those pages says they are not the Wix text.
+- Typos if Wix sample text is ever shown: **Inovative** (not “Inogrative”); **165 W Park Ave, El Cajon, CA 92020**.
+- **Juan accepted §16.** Keep it Effective on the website Terms.
+
+## Login destinations
+
+This is a static GitHub Pages site. There is **no** custom username/password on the storefront. Login is an entry that sends each audience to Microsoft 365 / Entra (or a short landing). Marketing pages stay public.
+
+Edit the three URLs in `assets/js/login-config.js`. Juan / Admin can swap the interim Cuevas Hub links for real Entra SSO or portal URLs later — no redesign.
+
+| Key | Who | Interim destination | Used on |
+| --- | --- | --- | --- |
+| `TEAM_URL` | IGM / Executive Partner staff | https://executiveptr.sharepoint.com/sites/CuevasHub/ | Team door on `login.html` |
+| `EMPLOYEE_URL` | IGM crew and office staff | same Hub (Employee Portal + handbook will live here) | Employees door on `login.html` |
+| `CLIENT_URL` | Property managers / client contacts | same Hub until a dedicated client portal exists | “Continue” button on `client-login.html` |
+
+The HTML also has those Hub URLs as `href` fallbacks so the doors still work if JavaScript is off. After you paste a new URL in the config file, commit and push — GitHub Pages picks it up.
 
 ## Background videos
 

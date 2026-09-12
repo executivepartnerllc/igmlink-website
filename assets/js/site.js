@@ -231,28 +231,134 @@
 
   setupScrollStory();
 
-  document.querySelectorAll("[data-quote-form]").forEach(function (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var data = new FormData(form);
-      var name = String(data.get("name") || "").trim();
-      var email = String(data.get("email") || "").trim();
-      var phone = String(data.get("phone") || "").trim();
-      var message = String(data.get("message") || "").trim();
-      var subject = "Free quote request from " + (name || "IGM website");
-      var body = [
-        "Name: " + name,
-        "Email: " + email,
-        "Phone: " + phone,
-        "",
-        message
-      ].join("\n");
-      var mailto =
-        "mailto:nislas@igmlink.com?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
-      window.location.href = mailto;
+  function setupQuoteForms() {
+    function quoteCfg() {
+      return window.IGM_QUOTE || {};
+    }
+
+    document.querySelectorAll("[data-quote-form]").forEach(function (form) {
+      var status = form.querySelector("[data-quote-status]");
+      var submit = form.querySelector('button[type="submit"]');
+
+      function setStatus(text, kind) {
+        if (!status) {
+          return;
+        }
+        status.hidden = !text;
+        status.textContent = text || "";
+        status.classList.toggle("is-error", kind === "error");
+      }
+
+      function mailtoHref(payload) {
+        var subject = "Website Quote from " + (payload.name || "IGM website");
+        var body = [
+          "leadSource: " + payload.leadSource,
+          "stage: " + payload.stage + " (do not auto-advance to Prospect)",
+          "Name: " + payload.name,
+          "Phone: " + payload.phone,
+          "Email: " + payload.email,
+          "Company / property: " + payload.company,
+          "",
+          payload.message
+        ].join("\n");
+        return (
+          "mailto:" +
+          notifyTo +
+          "?cc=" +
+          encodeURIComponent(notifyCc) +
+          "&subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body)
+        );
+      }
+
+      function showSuccess() {
+        var box = document.createElement("div");
+        box.className = "quote-success";
+        box.setAttribute("tabindex", "-1");
+        box.setAttribute("role", "status");
+        box.innerHTML =
+          "<p class=\"kicker\"><span class=\"kicker-dot\" aria-hidden=\"true\"></span>Request received</p>" +
+          "<h2>Thanks — we have your quote request.</h2>" +
+          "<p>It is filed as a Sales Lead at <strong>Stage: Suspect</strong>. Juan is notified, with Nicolas copied. A person at IGM confirms a real prospect before anyone moves it to Prospect.</p>" +
+          "<p><a class=\"btn btn-ghost\" href=\"tel:+18584054830\">Call (858) 405-4830</a></p>";
+        form.hidden = true;
+        form.insertAdjacentElement("afterend", box);
+        box.focus();
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var cfg = quoteCfg();
+        var webhook = String(cfg.QUOTE_WEBHOOK_URL || "").trim();
+        var leadSource = cfg.LEAD_SOURCE || "Website Quote";
+        var stage = cfg.STAGE || "Suspect";
+        var notifyTo = cfg.NOTIFY_TO || "jcuevas@igmlink.com";
+        var notifyCc = cfg.NOTIFY_CC || "nislas@igmlink.com";
+        var data = new FormData(form);
+        var company = String(data.get("company") || "").trim();
+        var payload = {
+          name: String(data.get("name") || "").trim(),
+          phone: String(data.get("phone") || "").trim(),
+          email: String(data.get("email") || "").trim(),
+          company: company,
+          property: company,
+          message: String(data.get("message") || "").trim(),
+          leadSource: leadSource,
+          stage: stage,
+          notifyTo: notifyTo,
+          notifyCc: notifyCc,
+          submittedAt: new Date().toISOString(),
+          page: window.location.href
+        };
+
+        if (!webhook) {
+          var missing = form.querySelector("[data-quote-mailto]");
+          if (missing) {
+            missing.setAttribute("href", mailtoHref(payload));
+          }
+          setStatus(
+            "The quote desk is being connected. Call (858) 405-4830 or use the email backup below so Juan and Nicolas get this today.",
+            "error"
+          );
+          return;
+        }
+
+        if (submit) {
+          submit.disabled = true;
+        }
+        setStatus("Sending your request…");
+
+        fetch(webhook, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Request failed");
+            }
+            showSuccess();
+          })
+          .catch(function () {
+            setStatus(
+              "We could not reach the quote desk just now. Call (858) 405-4830 or use the email backup — the message already includes Juan and Nicolas.",
+              "error"
+            );
+            var backup = form.querySelector("[data-quote-mailto]");
+            if (backup) {
+              backup.setAttribute("href", mailtoHref(payload));
+            }
+          })
+          .then(function () {
+            if (submit) {
+              submit.disabled = false;
+            }
+          });
+      });
     });
-  });
+  }
+
+  setupQuoteForms();
 })();

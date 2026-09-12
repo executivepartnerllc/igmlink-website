@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About | Inovative General Maintenance</title>
-  <meta name="description" content="Inovative General Maintenance is a trusted facility and janitorial partner for commercial, industrial, and institutional clients in the San Diego area.">
-  <link rel="canonical" href="https://executivepartnerllc.github.io/igmlink-website/about.html">
+  <title>Client access | Inovative General Maintenance</title>
+  <meta name="description" content="IGM client sign-in will use Microsoft. Continue to Cuevas Hub for now, or request a quote on the public site.">
+  <link rel="canonical" href="https://executivepartnerllc.github.io/igmlink-website/client-login.html">
   <meta name="theme-color" content="#EEF3F8">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="About Inovative General Maintenance">
-  <meta property="og:description" content="Reliability, professionalism, and attention to detail for San Diego-area workplaces.">
-  <meta property="og:url" content="https://executivepartnerllc.github.io/igmlink-website/about.html">
+  <meta property="og:title" content="Client access | IGM">
+  <meta property="og:description" content="A finished welcome for IGM clients. Microsoft sign-in is coming; Cuevas Hub is the interim door.">
+  <meta property="og:url" content="https://executivepartnerllc.github.io/igmlink-website/client-login.html">
   <meta property="og:image" content="https://executivepartnerllc.github.io/igmlink-website/assets/img/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,17 +32,17 @@
       </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="about.html" aria-current="page">About</a>
+        <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
-        <a class="nav-login" href="login.html">
+        <a class="nav-login" href="login.html" aria-current="page">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 17v-3h4V8h-4V5l-5 6 5 6zm9-14H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
           Login
         </a>
       </nav>
       <div class="header-cta">
         <a class="phone-link" href="tel:+18584054830">(858) 405-4830</a>
-        <a class="nav-login nav-login-compact" href="login.html">
+        <a class="nav-login nav-login-compact" href="login.html" aria-current="page">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 17v-3h4V8h-4V5l-5 6 5 6zm9-14H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
           Login
         </a>
@@ -54,62 +54,38 @@
     </div>
     <nav class="nav-mobile wrap" id="mobile-nav" data-nav-panel aria-label="Mobile">
       <a href="index.html">Home</a>
-      <a href="about.html" aria-current="page">About</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
-      <a href="login.html">Login</a>
+      <a href="login.html" aria-current="page">Login</a>
       <a href="tel:+18584054830">(858) 405-4830</a>
       <a class="btn btn-primary" href="contact.html">Request a free quote</a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="page-hero has-video about-hero">
-      <div class="about-track">
-        <div class="about-pin">
-          <div class="bg-video" data-parallax="media" aria-hidden="true">
-            <video
-              data-bg-video
-              data-src-desktop="assets/video/about-team.mp4"
-              data-src-mobile="assets/video/about-team-mobile.mp4"
-              src="assets/video/about-team.mp4"
-              muted
-              loop
-              playsinline
-              autoplay
-              preload="auto"
-            ></video>
+    <section class="page-hero login-hero">
+      <div class="wrap client-login-grid">
+        <div class="glass page-hero-copy" data-story>
+          <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>Clients</p>
+          <h1>A quieter door for the people we already serve.</h1>
+          <p class="lede">When the client portal is ready, you will sign in with Microsoft — the same work or school account you already use. No extra IGM password on this website.</p>
+        </div>
+        <aside class="glass client-login-card" data-story>
+          <p class="tag">Microsoft sign-in</p>
+          <h2>Continue for now</h2>
+          <p>There is not a separate client URL yet, so this button opens Cuevas Hub. After you have access, Microsoft will ask you to sign in. If you were not invited, you will not get through — and that is expected.</p>
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              data-login-dest="CLIENT_URL"
+              href="https://executiveptr.sharepoint.com/sites/CuevasHub/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Continue to Cuevas Hub <span class="visually-hidden">(opens in a new tab)</span></a>
+            <a class="btn btn-ghost" href="login.html">Back to all doors</a>
           </div>
-        </div>
-        <div class="about-hero-grid">
-          <div class="glass page-hero-copy" data-parallax="glass">
-            <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>About IGM</p>
-            <h1>A trusted facility and janitorial partner.</h1>
-            <p class="lede">Inovative General Maintenance serves commercial, industrial, and institutional clients in the San Diego area — reliability, professionalism, and attention to detail.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap split">
-        <div class="prose" data-story>
-          <p><strong>We deliver facility and janitorial work tailored to how a building actually runs</strong> — offices that need to look occupied, industrial spaces that cannot wait on a showpiece crew, and institutional sites that expect the same standard every night.</p>
-          <p>The team is built around reliability, professionalism, and attention to detail. That means clear communication, crews who know the assignment, and interiors that stay safe, clean, and presentable so people can do their jobs.</p>
-          <p>We use practical technology to keep cleaning processes consistent and to keep the conversation with the client simple. The aim is a long working relationship, not a one-time sweep.</p>
-          <p>Explore <a href="services.html">services</a> or call <a href="tel:+18584054830">(858) 405-4830</a> to talk through your facility.</p>
-        </div>
-        <aside class="card-list" data-story-stagger>
-          <article class="detail-card" data-story>
-            <h2>How we work</h2>
-            <p class="lede" style="margin-top:0.6rem">Walk the space, agree the scope, then keep a schedule you can count on — including evenings and weekends when the building needs it.</p>
-          </article>
-          <article class="detail-card" data-story>
-            <h2>Corporate office</h2>
-            <p style="margin-top:0.6rem">165 W Park Ave, El Cajon, CA 92020<br>
-            <a href="mailto:nislas@igmlink.com">nislas@igmlink.com</a><br>
-            Mon–Fri 8am–5pm · Sat–Sun 9am–5pm</p>
-          </article>
+          <p class="form-note">Need cleaning, not a portal? <a href="contact.html">Request a free quote</a> — the public site stays open.</p>
         </aside>
       </div>
     </section>
@@ -150,6 +126,7 @@
       </div>
     </div>
   </footer>
+  <script src="assets/js/login-config.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>

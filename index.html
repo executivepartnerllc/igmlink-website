@@ -54,9 +54,17 @@
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
+        <a class="nav-login" href="login.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 17v-3h4V8h-4V5l-5 6 5 6zm9-14H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+          Login
+        </a>
       </nav>
       <div class="header-cta">
         <a class="phone-link" href="tel:+18584054830">(858) 405-4830</a>
+        <a class="nav-login nav-login-compact" href="login.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 17v-3h4V8h-4V5l-5 6 5 6zm9-14H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+          Login
+        </a>
         <a class="btn btn-primary" href="contact.html">Free quote</a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <span></span>
@@ -68,6 +76,7 @@
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
       <a href="tel:+18584054830">(858) 405-4830</a>
       <a class="btn btn-primary" href="contact.html">Request a free quote</a>
     </nav>
@@ -212,11 +221,15 @@
           <label>Phone
             <input type="tel" name="phone" autocomplete="tel" required>
           </label>
+          <label>Company / property
+            <input type="text" name="company" autocomplete="organization" required>
+          </label>
           <label>Message
             <textarea name="message" required placeholder="Property type, square footage, and the schedule you have in mind."></textarea>
           </label>
-          <button class="btn btn-primary" type="submit">Email a free quote request</button>
-          <p class="form-note">No third-party form vendor. If your email app does not open, write directly to <a href="mailto:nislas@igmlink.com">nislas@igmlink.com</a>.</p>
+          <button class="btn btn-primary" type="submit">Send quote request</button>
+          <p class="form-status" data-quote-status role="status" aria-live="polite" hidden></p>
+          <p class="form-note">This sends a Sales Lead at Stage Suspect — not a skip to Prospect. Juan is notified, with Nicolas copied. Backup: <a data-quote-mailto href="mailto:jcuevas@igmlink.com?cc=nislas@igmlink.com">email Juan (CC Nicolas)</a>.</p>
         </form>
       </div>
     </section>
@@ -245,7 +258,9 @@
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
-            <a href="terms.html">Terms</a>
+            <a href="login.html">Login</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -255,6 +270,7 @@
       </div>
     </div>
   </footer>
+  <script src="assets/js/quote-config.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>
