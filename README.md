@@ -32,9 +32,25 @@ Motion: subtle CSS scroll-timeline parallax (hero video vs glass card, testimoni
 | `about.html` | About |
 | `services.html` | Janitorial / day porter / facility cleaning |
 | `contact.html` | Quote form and office details |
+| `login.html` | Login chooser — Team, Employees, Clients (does not lock the public site) |
+| `client-login.html` | Client door landing — Microsoft sign-in copy + interim Hub button |
 | `terms.html` | Short SMB terms placeholder |
 
 Quote forms open a `mailto:` message to `nislas@igmlink.com`.
+
+## Login destinations
+
+This is a static GitHub Pages site. There is **no** custom username/password on the storefront. Login is an entry that sends each audience to Microsoft 365 / Entra (or a short landing). Marketing pages stay public.
+
+Edit the three URLs in `assets/js/login-config.js`. Juan / Admin can swap the interim Cuevas Hub links for real Entra SSO or portal URLs later — no redesign.
+
+| Key | Who | Interim destination | Used on |
+| --- | --- | --- | --- |
+| `TEAM_URL` | IGM / Executive Partner staff | https://executiveptr.sharepoint.com/sites/CuevasHub/ | Team door on `login.html` |
+| `EMPLOYEE_URL` | IGM crew and office staff | same Hub (Employee Portal + handbook will live here) | Employees door on `login.html` |
+| `CLIENT_URL` | Property managers / client contacts | same Hub until a dedicated client portal exists | “Continue” button on `client-login.html` |
+
+The HTML also has those Hub URLs as `href` fallbacks so the doors still work if JavaScript is off. After you paste a new URL in the config file, commit and push — GitHub Pages picks it up.
 
 ## Background videos
 
