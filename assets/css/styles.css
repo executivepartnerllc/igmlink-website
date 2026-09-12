@@ -1537,6 +1537,24 @@ section {
   color: var(--ink);
 }
 
+.counsel-banner {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.2rem;
+  max-width: 46rem;
+  background: rgba(249, 171, 0, 0.14);
+  border: 1px solid rgba(176, 96, 0, 0.22);
+  border-radius: 18px;
+  padding: 1rem 1.2rem 1.1rem;
+  display: grid;
+  gap: 0.55rem;
+  color: var(--ink-2);
+}
+
+.counsel-banner strong {
+  color: var(--ink);
+}
+
 .legal-callout {
   margin: 0;
   background: var(--g-blue-soft);

@@ -68,9 +68,14 @@ Footer links on every page:
 - **Terms of Use** → `terms-of-use.html`
 - **Privacy Policy** → `privacy-policy.html`
 
-Copy is the Juan-locked website draft (effective / last updated September 12, 2026). **§16 Binding arbitration & class waiver is Effective** (locked 2026-09-12). Public pages do not carry a “draft / not legal advice” banner. `terms.html` redirects to `terms-of-use.html`.
+Copy is the Juan-locked website draft (effective / last updated September 12, 2026). **§16 Binding arbitration & class waiver is Effective** (locked 2026-09-12). `terms.html` redirects to `terms-of-use.html`.
 
-Spelling in the drafts is **Inovative**. Address is **165 W Park Ave, El Cajon, CA 92020**.
+### Counsel flags (Wix Terms — REVISE, not PASS)
+
+- Do **not** treat https://www.igmlink.com/general-5 (updated May 15, 2022) as final legal copy. Counsel marked that page **REVISE**.
+- Pages storefront does **not** publish that Wix text as authoritative. Footer goes to `terms-of-use.html` and `privacy-policy.html`, each with a banner that says so.
+- If sample Wix text is ever shown, fix known typos: **Inovative** (not “Inogrative”); address **165 W Park Ave, El Cajon, CA 92020** (Wix opt-out line dropped the “W”).
+- The website drafts already use those corrections. §16 on the website Terms is Effective; the banner is about the Wix page, not a rollback of that lock.
 
 ## Login destinations
 
